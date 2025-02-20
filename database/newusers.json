@@ -1,0 +1,20 @@
+[
+    {
+        "name":"Yahoobaba",
+        "email":"yahoo@gmail.com",
+        "age":"18",
+        "city":"Delhi"
+    },
+    {
+        "name":"Salman Khan",
+        "email":"salman@gmail.com",
+        "age":"18",
+        "city":"Delhi"
+    },
+    {
+        "name":"Amitabh bachan",
+        "email":"amitabh@gmail.com",
+        "age":"18",
+        "city":"Delhi"
+    }
+]
