@@ -7,10 +7,12 @@ use App\Http\Controllers\NewuserController;
 //     return view('welcome');
 // });
 
-Route::get('/', [NewuserController::class,'showNewusers']);
+Route::get('/', [NewuserController::class,'showNewusers'])->name('userhome');
 
-Route::get('/user/{id}', [NewuserController::class,'singleUser'])->name('view.singleUser');
+Route::get('/user/{id}', [NewuserController::class,'singleUser'])->name('view.singleuser');
 
-Route::get('/adduser', [NewuserController::class,'addUser'])->name('view.addUser');
+Route::get('/adduser', [NewuserController::class,'addUser'])->name('view.adduser');
 
-Route::get('/updateuser', [NewuserController::class,'updateUser'])->name('view.addUser');
+Route::get('/updateuser', [NewuserController::class,'updateUser'])->name('view.updateuser');
+
+Route::get('/deleteuser/{id}', [NewuserController::class,'deleteUser'])->name('view.delete');

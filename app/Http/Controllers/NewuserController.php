@@ -66,4 +66,19 @@ class NewuserController extends Controller
             echo "Data Not Added";
         }
     }
+
+    public function deleteUser(string $id){
+        $newuser    =   DB::table('newusers')
+                            ->where('id',$id)
+                            ->delete();
+        if($newuser){
+            echo "Data for $id Deleted Successfully";
+            return redirect()->route('userhome');
+        }
+        else{
+            echo "Data Not Deleted";
+            return redirect()->route('userhome');
+        }
+
+    }
 }

@@ -18,6 +18,7 @@
                             <th>Age</th>
                             <th>City</th>
                             <th>View</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -28,7 +29,12 @@
                             <td>{{ $d->email }}</td>
                             <td>{{ $d->age }}</td>
                             <td>{{ $d->city }}</td>
-                            <td><a class="btn btn-primary" href="{{ route('view.singleUser',$d->id)}}">View</a></td>
+                            <td>
+                                <a class="btn btn-primary" href="{{ route('view.singleuser',$d->id)}}">View</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-danger" href="{{ route('view.delete',$d->id)}}">Delete</a>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
