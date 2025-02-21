@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Session;
 class NewuserController extends Controller
 {
     //
@@ -64,11 +65,14 @@ class NewuserController extends Controller
                             ]);
                             
         if($newuser){
+            Session::flash('message',"User Updated Successfully");
             return redirect()->route('userhome');
             //echo "Data Added";
         }
         else{
-            echo "Data Not Added";
+            Session::flash('message',"User Not Updated");
+            return redirect()->route('userhome');
+            //echo "Data Not Added";
         }
     }
 

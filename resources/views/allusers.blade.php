@@ -7,6 +7,11 @@
 <body>
     <div class="container">
         <div class="row">
+        @if (Session::has('message'))
+            <div class='alert alert-info'>
+                {{ Session::get('message') }}
+            </div>
+        @endif
             <div class="col-6">
                 <h1>All User Data</h1>
                 <a class="btn btn-success" href="/newuser">Add New</a>
