@@ -56,7 +56,9 @@ class NewuserController extends Controller
         $newuser    =   DB::table('newusers')
                             ->where('id',3)
                             //->where('id',5)
-                            ->increment('age');
+                            ->decrement('age',3,
+                                ['city'=>"Punjab"]
+                            );
         if($newuser){
             echo "Data Added";
         }
