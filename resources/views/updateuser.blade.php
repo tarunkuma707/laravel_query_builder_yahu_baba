@@ -11,6 +11,7 @@
             <div class="col-4">
                 <h1>Update User</h1>
                 <form action="{{ route('view.updateuser', $data->id) }}" method="POST">
+                @method("PUT")
                 @csrf
                     <div class="mb-3">
                         <label class="form-label">Name</label>

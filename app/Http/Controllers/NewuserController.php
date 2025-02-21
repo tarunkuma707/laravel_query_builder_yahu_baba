@@ -64,8 +64,8 @@ class NewuserController extends Controller
                             ]);
                             
         if($newuser){
-            //return redirect()->route('userhome');
-            echo "Data Added";
+            return redirect()->route('userhome');
+            //echo "Data Added";
         }
         else{
             echo "Data Not Added";

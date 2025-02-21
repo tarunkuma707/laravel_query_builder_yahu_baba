@@ -14,7 +14,7 @@ Route::controller(NewuserController::class)->group(function(){
 
     Route::post('/adduser', 'addUser')->name('view.adduser');
 
-    Route::post('/updateuser/{id}', 'updateUser')->name('view.updateuser');
+    Route::put('/updateuser/{id}', 'updateUser')->name('view.updateuser');
 
     Route::get('/updatepage/{id}', 'updatePage')->name('view.updatepage');
 
