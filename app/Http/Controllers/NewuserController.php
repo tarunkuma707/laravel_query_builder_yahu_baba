@@ -79,22 +79,35 @@ class NewuserController extends Controller
     public function updatepage(string $id,Request $req){
         //$user   =   DB::table('newusers')->where('id',$id)->get();
         $user   =   DB::table('newusers')->find($id);
+        if($user){
+            return view('updateuser',['data'=>$user]);    
+        }
+        else{
+            Session::flash('message',"The mentioned user does not exist");
+            return redirect()->route('userhome');
+        }
         //return $user;
         return view('updateuser',['data'=>$user]);
     }
 
     public function deleteUser(string $id){
-        $newuser    =   DB::table('newusers')
+        $user   =   DB::table('newusers')->find($id);
+        if($user){
+            $newuser    =   DB::table('newusers')
                             ->where('id',$id)
                             ->delete();
-        if($newuser){
-            echo "Data for $id Deleted Successfully";
-            return redirect()->route('userhome');
+            if($newuser){
+                Session::flash('message',"User Deleted Successfully");
+                return redirect()->route('userhome');
+            }
+            else{
+                Session::flash('message',"Somewrong here");
+                return redirect()->route('userhome');
+            }
         }
         else{
-            echo "Data Not Deleted";
+            Session::flash('message',"The mentioned user does not exist");
             return redirect()->route('userhome');
         }
-
     }
 }
