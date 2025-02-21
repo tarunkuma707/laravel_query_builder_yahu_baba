@@ -7,12 +7,19 @@ use App\Http\Controllers\NewuserController;
 //     return view('welcome');
 // });
 
-Route::get('/', [NewuserController::class,'showNewusers'])->name('userhome');
+Route::controller(NewuserController::class)->group(function(){
+    Route::get('/', 'showNewusers')->name('userhome');
 
-Route::get('/user/{id}', [NewuserController::class,'singleUser'])->name('view.singleuser');
+    Route::get('/user/{id}','singleUser')->name('view.singleuser');
 
-Route::get('/adduser', [NewuserController::class,'addUser'])->name('view.adduser');
+    Route::post('/adduser', 'addUser')->name('view.adduser');
 
-Route::get('/updateuser', [NewuserController::class,'updateUser'])->name('view.updateuser');
+    Route::post('/updateuser/{id}', 'updateUser')->name('view.updateuser');
 
-Route::get('/deleteuser/{id}', [NewuserController::class,'deleteUser'])->name('view.delete');
+    Route::get('/updatepage/{id}', 'updatePage')->name('view.updatepage');
+
+    Route::get('/deleteuser/{id}', 'deleteUser')->name('view.delete');
+});
+
+
+Route::view('newuser','/adduser');

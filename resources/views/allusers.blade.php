@@ -9,6 +9,7 @@
         <div class="row">
             <div class="col-6">
                 <h1>All User Data</h1>
+                <a class="btn btn-success" href="/newuser">Add New</a>
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
@@ -19,6 +20,7 @@
                             <th>City</th>
                             <th>View</th>
                             <th>Delete</th>
+                            <th>Update</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,6 +36,9 @@
                             </td>
                             <td>
                                 <a class="btn btn-danger" href="{{ route('view.delete',$d->id)}}">Delete</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-warning" href="{{ route('view.updatepage',$d->id)}}">Update</a>
                             </td>
                         </tr>
                     @endforeach

@@ -31,40 +31,52 @@ class NewuserController extends Controller
         return view('singleuser',['singleuser'=>$singleuser]);
     }
 
-    public function addUser(){
-        $newuser    =   DB::table('newusers')->insertGetId(
+    public function addUser(Request $req){
+        $newuser    =   DB::table('newusers')->insert(
             [                
-                'name'=> 'Rajender Kumar',
-                'email'=>'rajender@gmail.com',
-                'age'=>'39',
-                'city'=>'Mumbai',
+                'name'=>    $req->username,
+                'email'=>   $req->useremail,
+                'age'=>     $req->userage,
+                'city'=>    $req->usercity,
                 'created_at'=>now(),
                 'updated_at'=>now()
             ]
         );
-        // if ($newuser) {
-        //     # code...
-        //     echo "<h1>Data Added</h1>";
-        // }
-        // else{
-        //     echo "<h1>Something went wrong. Please check the data.</h1>";
-        // }
-        return $newuser;
+        if ($newuser) {
+            # code...
+           return redirect()->route('userhome');
+        }
+        else{
+            //echo "<h1>Something went wrong. Please check the data.</h1>";
+            return redirect()->route('userhome');
+        }
+        //return $newuser;
     }
 
-    public function updateUser(){
+    public function updateUser(Request $req, string $id){
         $newuser    =   DB::table('newusers')
-                            ->where('id',3)
-                            //->where('id',5)
-                            ->decrement('age',3,
-                                ['city'=>"Punjab"]
-                            );
+                            ->where('id',$id)
+                            ->update([
+                                'name'=>$req->username,
+                                'email'=>$req->useremail,
+                                'age'=>$req->userage,
+                                'city'=>$req->usercity,
+                            ]);
+                            
         if($newuser){
+            //return redirect()->route('userhome');
             echo "Data Added";
         }
         else{
             echo "Data Not Added";
         }
+    }
+
+    public function updatepage(string $id,Request $req){
+        //$user   =   DB::table('newusers')->where('id',$id)->get();
+        $user   =   DB::table('newusers')->find($id);
+        //return $user;
+        return view('updateuser',['data'=>$user]);
     }
 
     public function deleteUser(string $id){
