@@ -23,7 +23,8 @@ class NewuserController extends Controller
                             // ->inRandomOrder()
                             // ->first();
                             //->sum('age');
-                            ->paginate(5)
+                            ->orderBy('id')
+                            ->cursorPaginate(5)
                             //->appends(['sorts'=>'votes']);
                             ->fragment('users');
         //return $newusers;
