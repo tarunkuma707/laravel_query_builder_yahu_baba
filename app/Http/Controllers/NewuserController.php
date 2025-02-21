@@ -54,17 +54,9 @@ class NewuserController extends Controller
 
     public function updateUser(){
         $newuser    =   DB::table('newusers')
+                            ->where('id',3)
                             //->where('id',5)
-                            ->updateOrInsert(
-                                [
-                                    'email'=>"yahooUU@gmail.com",
-                                    'name'=>"Yahoobaba 11",
-                                    'city'=>"SAS Nagar"
-                                ],
-                                [
-                                    "age"=>"20"
-                                ]
-                            );
+                            ->increment('age');
         if($newuser){
             echo "Data Added";
         }
