@@ -51,4 +51,25 @@ class NewuserController extends Controller
         // }
         return $newuser;
     }
+
+    public function updateUser(){
+        $newuser    =   DB::table('newusers')
+                            //->where('id',5)
+                            ->updateOrInsert(
+                                [
+                                    'email'=>"yahooUU@gmail.com",
+                                    'name'=>"Yahoobaba 11",
+                                    'city'=>"SAS Nagar"
+                                ],
+                                [
+                                    "age"=>"20"
+                                ]
+                            );
+        if($newuser){
+            echo "Data Added";
+        }
+        else{
+            echo "Data Not Added";
+        }
+    }
 }
