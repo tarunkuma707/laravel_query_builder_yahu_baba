@@ -1,7 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewuserController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [NewuserController::class,'showNewusers']);
+
+Route::get('/user/{id}', [NewuserController::class,'singleUser'])->name('view.singleUser');
