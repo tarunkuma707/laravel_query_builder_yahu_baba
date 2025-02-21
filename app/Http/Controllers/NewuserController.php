@@ -18,16 +18,37 @@ class NewuserController extends Controller
                             // ->orderBy('age','DESC')
                             // ->take(2)
                             // ->skip(1)
-                            // ->get();
+                             ->get();
                             // ->inRandomOrder()
                             // ->first();
-                            ->sum('age');
-        return $newusers;
-        //return view('allusers',['data'=>$newusers]);
+                            //->sum('age');
+        //return $newusers;
+        return view('allusers',['data'=>$newusers]);
     }
 
     public function singleUser(string $id){
         $singleuser   =   DB::table('newusers')->where('id',$id)->get();
         return view('singleuser',['singleuser'=>$singleuser]);
+    }
+
+    public function addUser(){
+        $newuser    =   DB::table('newusers')->insertGetId(
+            [                
+                'name'=> 'Rajender Kumar',
+                'email'=>'rajender@gmail.com',
+                'age'=>'39',
+                'city'=>'Mumbai',
+                'created_at'=>now(),
+                'updated_at'=>now()
+            ]
+        );
+        // if ($newuser) {
+        //     # code...
+        //     echo "<h1>Data Added</h1>";
+        // }
+        // else{
+        //     echo "<h1>Something went wrong. Please check the data.</h1>";
+        // }
+        return $newuser;
     }
 }

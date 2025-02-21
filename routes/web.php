@@ -10,3 +10,5 @@ use App\Http\Controllers\NewuserController;
 Route::get('/', [NewuserController::class,'showNewusers']);
 
 Route::get('/user/{id}', [NewuserController::class,'singleUser'])->name('view.singleUser');
+
+Route::get('/adduser', [NewuserController::class,'addUser'])->name('view.addUser');
