@@ -49,6 +49,15 @@
                     @endforeach
                     </tbody>
                 </table>
+                <div class="mt-5">
+                    {{ $data->links('pagination::bootstrap-5') }}
+                </div>
+                <div>
+                    Total Users: {{ $data->total() }}
+                </div>
+                <div>
+                    Current Page: {{ $data->currentPage() }}
+                </div>
             </div>
         </div>
     </div>

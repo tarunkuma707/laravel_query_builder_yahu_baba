@@ -19,10 +19,13 @@ class NewuserController extends Controller
                             // ->orderBy('age','DESC')
                             // ->take(2)
                             // ->skip(1)
-                             ->get();
+                             //->get();
                             // ->inRandomOrder()
                             // ->first();
                             //->sum('age');
+                            ->paginate(5)
+                            //->appends(['sorts'=>'votes']);
+                            ->fragment('users');
         //return $newusers;
         return view('allusers',['data'=>$newusers]);
     }
@@ -45,6 +48,7 @@ class NewuserController extends Controller
         );
         if ($newuser) {
             # code...
+            Session::flash('message',"User Added Successfully");
            return redirect()->route('userhome');
         }
         else{
