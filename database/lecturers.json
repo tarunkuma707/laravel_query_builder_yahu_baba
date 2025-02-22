@@ -1,0 +1,20 @@
+[
+    {
+        "name":"Tarun Kumar",
+        "email":"tarun@gmail.com",
+        "age":"48",
+        "city":"Delhi"
+    },
+    {
+        "name":"Rachna",
+        "email":"rachna@gmail.com",
+        "age":"51",
+        "city":"Chandigarh"
+    },
+    {
+        "name":"Naveen Jain",
+        "email":"navven.jain@gmail.com",
+        "age":"44",
+        "city":"Delhi"
+    }
+]

@@ -137,4 +137,40 @@ class NewuserController extends Controller
         //return $joinedusers;
         return view('/joineduser',['joinedusers'=>$joinedusers]);
     }
+
+    public function uniondata(){
+        $lecturers  =   DB::table('lecturers')
+                        ->select('name','email','city','cities.city_name as cityname')
+                        ->join('cities','lecturers.city','=','cities.id');
+        $newuser    =   DB::table('newusers')
+                        ->select('name','email','city','cities.city_name as cityname')
+                        ->join('cities','newusers.city','=','cities.id')
+                        ->union($lecturers)
+                        ->get();
+        return $newuser;
+    }
+
+    public function whendata(){
+        $bool       =   true;
+        $newuser    =   DB::table('newusers')
+                        ->when($bool,function($query){
+                            $query->where('age','>',17);
+                        },function($query){
+                            $query->where('age','<',17);
+                        })
+                        ->get();
+        return $newuser;
+    }
+
+    public function chunkdata(){
+        $newuser    =   DB::table('newusers')
+                        ->orderBy('id')
+                        ->chunkById(2,function($newusers){
+                            echo "<div style='border:1px solid red;margin-bottom:15px;'>";
+                            foreach($newusers as $student){
+                                echo $student->name."<br/>";
+                            }
+                            echo "</div>";
+                        });
+    }
 }

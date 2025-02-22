@@ -21,6 +21,12 @@ Route::controller(NewuserController::class)->group(function(){
     Route::get('/deleteuser/{id}', 'deleteUser')->name('view.delete');
 
     Route::get('/showusers','showJoinedUsers')->name('view.joinedusers');
+
+    Route::get('/uniondata','uniondata');
+    
+    Route::get('/whendata','whendata');
+
+    Route::get('/chunkdata','chunkdata');
 });
 
 
