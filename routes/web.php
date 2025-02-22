@@ -19,6 +19,8 @@ Route::controller(NewuserController::class)->group(function(){
     Route::get('/updatepage/{id}', 'updatePage')->name('view.updatepage');
 
     Route::get('/deleteuser/{id}', 'deleteUser')->name('view.delete');
+
+    Route::get('/showusers','showJoinedUsers')->name('view.joinedusers');
 });
 
 

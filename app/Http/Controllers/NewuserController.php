@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Session;
@@ -114,5 +115,26 @@ class NewuserController extends Controller
             Session::flash('message',"The mentioned user does not exist");
             return redirect()->route('userhome');
         }
+    }
+
+    public function showJoinedUsers(){
+        // $joinedusers  =   DB::table('newusers')
+        //                 ->select('newusers.*','cities.city_name as CityName')
+        //             ->rightJoin('cities','newusers.city','=','cities.id')
+        //             // ->select(DB::raw('count(*) as student_count'),'cities.city_name')
+        //             // ->groupBy('cities.city_name')
+        //             // ->havingBetween('student_count',[1,5])
+        //             // ->orderBy('student_count','DESC')
+        //             //->where('newusers.name','like','%s%')
+        //             //->whereNull('newusers.id')
+        //             ->get();
+        $joinedusers    =   DB::table('newusers')
+                            ->select('newusers.*','cities.city_name as CityName')
+                            ->leftJoin('cities',function(JoinClause $join){
+                                $join->on('newusers.city','=','cities.id');
+                            })
+                            ->get();
+        //return $joinedusers;
+        return view('/joineduser',['joinedusers'=>$joinedusers]);
     }
 }
