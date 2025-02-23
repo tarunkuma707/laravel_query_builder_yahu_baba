@@ -12,13 +12,13 @@ Route::controller(NewuserController::class)->group(function(){
 
     Route::get('/user/{id}','singleUser')->name('view.singleuser');
 
-    Route::post('/adduser', 'addUser')->name('view.adduser');
+    Route::post('/addNewuser', 'addNewUser')->name('view.adduser');
 
     Route::put('/updateuser/{id}', 'updateUser')->name('view.updateuser');
 
     Route::get('/updatepage/{id}', 'updatePage')->name('view.updatepage');
 
-    Route::get('/deleteuser/{id}', 'deleteUser')->name('view.delete');
+    Route::post('/deleteuser/{id}', 'deleteUser')->name('view.delete');
 
     Route::get('/showusers','showJoinedUsers')->name('view.joinedusers');
 
@@ -30,4 +30,4 @@ Route::controller(NewuserController::class)->group(function(){
 });
 
 
-Route::view('newuser','/adduser');
+Route::view('/newuser','adduser');

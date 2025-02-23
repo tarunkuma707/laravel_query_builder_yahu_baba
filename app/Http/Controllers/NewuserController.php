@@ -37,7 +37,14 @@ class NewuserController extends Controller
         return view('singleuser',['singleuser'=>$singleuser]);
     }
 
-    public function addUser(Request $req){
+    public function addNewUser(Request $req){
+        $req->validate([
+            "username"=>"required",
+            'useremail'=>'required|email|unique:newusers,email',
+            'userpass'=>'required|alpha_num:ascii|min:6',
+            'userage'=>'required|numeric|between:18,99',
+            'usercity'=>'required'
+        ]);
         $newuser    =   DB::table('newusers')->insert(
             [                
                 'name'=>    $req->username,
@@ -46,6 +53,14 @@ class NewuserController extends Controller
                 'city'=>    $req->usercity,
                 'created_at'=>now(),
                 'updated_at'=>now()
+            ],
+            [
+                "username.required"=>"User name paao",
+                "useremail.required"=>"user email paao",
+                "useremail.email"=>"Sahi paao",
+                "userage.required"=>"Umar paao",
+                "userage.numeric"=>'age should be number',
+                'userage.min:18'=>"Age should be not greater than 18"
             ]
         );
         if ($newuser) {
