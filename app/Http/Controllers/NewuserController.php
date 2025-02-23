@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\NewuserRequest;
+use App\Rules\Uppercase;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -39,6 +40,10 @@ class NewuserController extends Controller
     }
 
     public function addNewUser(NewuserRequest $req){
+        $validate = $req->validate([
+            'username'=>['required', new Uppercase],
+            'useremail'=>'required|email',
+        ]);
         // $req->validate([
         //     "username"=>"required",
         //     'useremail'=>'required|email|unique:newusers,email',
@@ -54,6 +59,7 @@ class NewuserController extends Controller
         //     "userage.numeric"=>'age should be number',
         //     'userage.min:18'=>"Age should be not greater than 18"
         // ]);
+        return $req->all();
         $newuser    =   DB::table('newusers')->insert(
             [                
                 'name'=>    $req->username,
