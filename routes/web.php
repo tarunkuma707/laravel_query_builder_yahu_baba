@@ -46,5 +46,5 @@ Route::resource('lecturers',LecturersController::class);
 Route::resource('users.comments',CommentsController::class)->shallow();
 
 
-//Route::resource("/subscribers", SubscriberController::class);
-Route::get("/subscriber",[SubscriberController::class,'index']);
+Route::resource("/subscribers", SubscriberController::class);
+//Route::get("/subscriber", [SubscriberController::class,'index']);

@@ -20,7 +20,7 @@ class SubscriberController extends Controller
         $subscribers    =   Subscriber::where("city","<>","Delhi")
         ->get();
         //return $subscribers; 
-        return view('subscriber',compact("subscribers"));
+        return view('subscriberhome',compact("subscribers"));
     }
 
     /**
@@ -29,6 +29,7 @@ class SubscriberController extends Controller
     public function create()
     {
         //
+        return view('addsubscriber');
     }
 
     /**
@@ -37,6 +38,20 @@ class SubscriberController extends Controller
     public function store(Request $request)
     {
         //
+        
+        // $subscriber =   new Subscriber();
+        // $subscriber->name   =$request->username;
+        // $subscriber->email   =$request->useremail;
+        // $subscriber->age   =$request->userage;
+        // $subscriber->city   =$request->usercity;
+        // $subscriber->save();
+        Subscriber::create([
+            'name'=>$request->username,
+            'email'=>$request->useremail,
+            'age'=>$request->userage,
+            'city'=>$request->usercity,
+        ]);
+        return redirect()->route('subscribers.index')->with('status',"Subscriber has been added");
     }
 
     /**
@@ -45,6 +60,9 @@ class SubscriberController extends Controller
     public function show(Subscriber $subscriber)
     {
         //
+       
+        $subscribershow =   Subscriber::find($subscriber);
+        return view('viewsubscriber', compact('subscribershow'));
     }
 
     /**
@@ -53,6 +71,7 @@ class SubscriberController extends Controller
     public function edit(Subscriber $subscriber)
     {
         //
+        return view('updatesubscriber');
     }
 
     /**

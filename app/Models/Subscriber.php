@@ -9,4 +9,6 @@ class Subscriber extends Model
 {
     //
     use HasFactory;
+    //protected $guarded =[];
+    protected $fillable =   ['name','email','age','city'];
 }
