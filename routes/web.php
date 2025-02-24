@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\LecturersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewuserController;
 
@@ -31,3 +33,12 @@ Route::controller(NewuserController::class)->group(function(){
 
 
 Route::view('/newuser','adduser');
+
+// Route::resource('lecturers',LecturersController::class)->names([
+//     'create'=>'lecturers.build',
+//     'show'=>'lecturers.view',
+// ]);
+
+Route::resource('lecturers',LecturersController::class);
+
+Route::resource('users.comments',CommentsController::class)->shallow();

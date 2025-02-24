@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\NewuserRequest;
-use App\Rules\Uppercase;
+//use App\Rules\Uppercase;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Session;
+use Illuminate\Support\Facades\Validator;
+use Closure;
 class NewuserController extends Controller
 {
     //
@@ -40,9 +42,12 @@ class NewuserController extends Controller
     }
 
     public function addNewUser(NewuserRequest $req){
-        $validate = $req->validate([
-            'username'=>['required', new Uppercase],
-            'useremail'=>'required|email',
+        // $validate = $req->validate([
+        //     'username'=>['required', new Uppercase],
+        //     'useremail'=>'required|email',
+        // ]);
+        $req->validate([
+            'username'  => 'required',
         ]);
         // $req->validate([
         //     "username"=>"required",
