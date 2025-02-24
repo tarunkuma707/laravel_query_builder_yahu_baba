@@ -31,5 +31,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             LecturersSeeder::class
         ]);
+        $this->call([
+            SubscriberSeeder::class
+        ]);
     }
 }

@@ -4,6 +4,8 @@ use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\LecturersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewuserController;
+use App\Http\Controllers\SubscriberController;
+use App\Models\Subscriber;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -42,3 +44,7 @@ Route::view('/newuser','adduser');
 Route::resource('lecturers',LecturersController::class);
 
 Route::resource('users.comments',CommentsController::class)->shallow();
+
+
+//Route::resource("/subscribers", SubscriberController::class);
+Route::get("/subscriber",[SubscriberController::class,'index']);
