@@ -5,6 +5,9 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Newuser;
 use App\Models\Lecturer;
+use App\Models\Student;
+use App\Models\Partner;
+use App\Models\Contact;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -33,6 +36,15 @@ class DatabaseSeeder extends Seeder
         ]);
         $this->call([
             SubscriberSeeder::class
+        ]);
+        $this->call([
+            StudentSeeder::class
+        ]);
+        $this->call([
+            PartnerSeeder::class
+        ]);
+        $this->call([
+            ContactSeeder::class
         ]);
     }
 }

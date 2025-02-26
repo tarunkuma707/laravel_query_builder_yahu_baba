@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LecturersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewuserController;
+use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubscriberController;
 use App\Models\Subscriber;
 
@@ -48,3 +51,9 @@ Route::resource('users.comments',CommentsController::class)->shallow();
 
 Route::resource("/subscribers", SubscriberController::class);
 //Route::get("/subscriber", [SubscriberController::class,'index']);
+
+Route::resource('student',StudentController::class);
+
+Route::resource('partner',PartnerController::class);
+
+Route::get('/contact',[ContactController::class,'show']);

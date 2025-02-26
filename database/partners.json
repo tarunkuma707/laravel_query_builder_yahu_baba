@@ -1,0 +1,32 @@
+[
+    {
+        "name":"Yahoobaba",
+        "age":"18",
+        "gender":"Male"
+    },
+    {
+        "name":"Salman Khan",
+        "age":"19",
+        "gender":"Male"
+    },
+    {
+        "name":"Jaya bachan",
+        "age":"22",
+        "gender":"Female"
+    },
+    {
+        "name":"Fatima",
+        "age":"18",
+        "gender":"Female"
+    },
+    {
+        "name":"Asma S",
+        "age":"19",
+        "gender":"Female"
+    },
+    {
+        "name":"Aish bachan",
+        "age":"30",
+        "gender":"Female"
+    }
+]

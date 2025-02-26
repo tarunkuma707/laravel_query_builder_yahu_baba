@@ -1,0 +1,45 @@
+[
+    {
+        "email":"yahoobaba@gmail.com",
+        "phone":"123456",
+        "address":"KJKJ, SS",
+        "city":"Delhi",
+        "student_id":"1"
+
+    },
+    {
+        "email":"salmanrani@gmail.com",
+        "phone":"123456",
+        "address":"KJKJ, SS",
+        "city":"Punjab",
+        "student_id":"2"
+    },
+    {
+        "email":"Jaya bachan",
+        "phone":"123456",
+        "address":"KJKJ, SS",
+        "city":"Chandigarh",
+        "student_id":"3"
+    },
+    {
+        "email":"fatima@gmail.com",
+        "phone":"123456",
+        "address":"KJKJ, SS",
+        "city":"Delhi",
+        "student_id":"4"
+    },
+    {
+        "email":"AsmaS@gmail.com",
+        "phone":"123456",
+        "address":"KJKJ, SS",
+        "city":"Kolkotta",
+        "student_id":"5"
+    },
+    {
+        "email":"aish_bachan@gmail.com",
+        "phone":"123456",
+        "address":"KJKJ, SS",
+        "city":"Panchkula",
+        "student_id":"6"
+    }
+]
