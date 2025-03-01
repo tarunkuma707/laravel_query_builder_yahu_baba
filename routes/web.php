@@ -3,11 +3,13 @@
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\LecturersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewuserController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubscriberController;
 use App\Models\Subscriber;
@@ -63,3 +65,7 @@ Route::get('/contact',[ContactController::class,'show']);
 Route::resource('author', AuthorController::class);
 
 Route::resource('post', PostController::class);
+
+Route::resource('employee', EmployeeController::class);
+
+Route::resource('roles', RoleController::class);
