@@ -3,10 +3,12 @@
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\LecturersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewuserController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RoleController;
@@ -69,3 +71,7 @@ Route::resource('post', PostController::class);
 Route::resource('employee', EmployeeController::class);
 
 Route::resource('roles', RoleController::class);
+
+Route::resource('customer',CustomerController::class);
+
+Route::resource('order',OrderController::class);
