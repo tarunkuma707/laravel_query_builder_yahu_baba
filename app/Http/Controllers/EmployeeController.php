@@ -14,18 +14,24 @@ class EmployeeController extends Controller
     public function index()
     {
         //
-        $employees  = Employee::get();
+        //$employees  = Employee::get();
         //return $employees->roles;
-        // foreach($employees->roles as $role){
-        //     echo $role->role_name."<br>";
+        
+        // // foreach($employees->roles as $role){
+        // //     echo $role->role_name."<br>";
+        // // }
+        // foreach($employees as $employee){
+        //     echo $employee->name."<br>";
+        //     echo $employee->email."<br>";
+        //     foreach($employee->roles as $role){
+        //         echo $role->role_name." / ";
+        //     }
+        //     echo "<hr>";
         // }
+        $employees  = Employee::with("company")->with("phoneNumber")->get();
+        //return $employees;
         foreach($employees as $employee){
-            echo $employee->name."<br>";
-            echo $employee->email."<br>";
-            foreach($employee->roles as $role){
-                echo $role->role_name." / ";
-            }
-            echo "<hr>";
+            echo "<h3>".$employee->name." | ".$employee->email." | ".$employee->company->company_name." | ".$employee->phoneNumber->number."</h4>";
         }
     }
 
