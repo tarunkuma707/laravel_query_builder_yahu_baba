@@ -21,6 +21,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\VideoController;
 use App\Models\Purchaser;
 use App\Models\Subscriber;
@@ -102,3 +103,5 @@ Route::resource('video',VideoController::class);
 Route::resource('comment',CommentController::class);
 
 Route::resource('tag',TagController::class);
+
+Route::resource('test',TestController::class);
