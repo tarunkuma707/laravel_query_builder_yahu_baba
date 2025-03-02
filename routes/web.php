@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\LecturersController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\NewuserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ReaderController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubscriberController;
@@ -75,3 +77,9 @@ Route::resource('roles', RoleController::class);
 Route::resource('customer',CustomerController::class);
 
 Route::resource('order',OrderController::class);
+
+Route::resource('country',CountryController::class);
+
+Route::resource('reader',ReaderController::class);
+
+//Route::resource('post',PostController::class);
