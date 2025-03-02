@@ -42,13 +42,17 @@ class VideoController extends Controller
     public function create()
     {
         //
-        $videos = Video::find(2)->comments()->create([
-            'detail'=>'Awsome Video!',
-            'commentable_id'=>"2"
-        ]);
+        // $videos = Video::find(2)->comments()->create([
+        //     'detail'=>'Awsome Video!',
+        //     'commentable_id'=>"2"
+        // ]);
         // $videos->comments()->create([
         //     'detail'=>'Awsome Video!'
         // ]);
+
+        $video = Video::find(2);
+
+        $video->tags()->attach([1,4]);
     }
 
     /**

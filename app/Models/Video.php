@@ -27,4 +27,8 @@ class Video extends Model
     public function leastLikes(){
         return $this->morphOne(Comment::class,'commentable')->ofMany('likes',"min");
     }
+
+    public function tags(){
+        return $this->morphToMany(Tag::class,'taggable');
+    }
 }
