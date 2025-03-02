@@ -17,4 +17,19 @@ class Reader extends Model
     public function country(){
         return $this->belongsTo(Country::class);
     }
+
+    // protected static function booted() :void
+    // {
+    //     static::deleted(function($reader){
+    //         $reader->posts()->delete();
+    //     });
+        
+    //     static::created(function($reader){
+            
+    //     });
+
+    //     static::updated(function($reader){
+            
+    //     });
+    // }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
+use App\Models\Post;
 use App\Models\Reader;
 use Illuminate\Http\Request;
 
@@ -13,8 +15,11 @@ class ReaderController extends Controller
     public function index()
     {
         //
-        $readers    =   Reader::with('posts')->with('country')->get();
-        return $readers;
+        // $readers    =   Reader::with('posts')->with('country')->get();
+        // return $readers;
+        
+        $reader =   Reader::with("posts")->find(2);
+        return $reader;
     }
 
     /**
@@ -23,6 +28,7 @@ class ReaderController extends Controller
     public function create()
     {
         //
+        $reader =   Reader::find(3)->delete();
     }
 
     /**

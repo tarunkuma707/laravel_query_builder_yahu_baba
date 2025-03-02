@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Author;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Author;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -24,9 +25,11 @@ class PostController extends Controller
         //     echo $post->description."<br/>";
         //     echo $post->author->name."<br/>";
         // }
-        $authors  =   Author::where('name',"S1")->get();
-        $posts  =   Post::whereBelongsTo($authors)->get();
-        return $posts;
+        // $authors  =   Author::where('name',"S1")->get();
+        // $posts  =   Post::whereBelongsTo($authors)->get();
+        // return $posts;
+        $post = Post::find(5);
+        return $post;
     }
 
     /**
@@ -35,6 +38,12 @@ class PostController extends Controller
     public function create()
     {
         //
+        $post_title =   "This is one more testing";
+        Post::create([
+            'title'=>$post_title,
+            'description'=>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, nulla.",
+            "reader_id"=>5,
+        ]);
     }
 
     /**
