@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Article;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
-class ArticleController extends Controller
+class VideoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,25 @@ class ArticleController extends Controller
     public function index()
     {
         //
-        $article = Article::with('image')->find(1);
-        return $article;
+        $videos = Video::with("comments")->get();
+        foreach($videos as $video){
+            echo "<h1>$video->title</h1>";
+            echo "<h4>$video->url</h4>";
+            echo "<h6>$video->title</h6>";
+            foreach($video->comments as $comment){
+                echo $comment->detail."<br/>";
+            }
+        }
+        //return $videos;
+        //$videos = Video::find(1);
+        // echo "<h1>$videos->title</h1>";
+        // echo "<h4>$videos->url</h4>";
+        // echo "<h6>$videos->title</h6>";
+        
+        // foreach($videos->comments as $comment){
+        //     echo $comment->detail."<br/>";
+        // }
+        //echo "<hr>";
     }
 
     /**
@@ -23,20 +40,13 @@ class ArticleController extends Controller
     public function create()
     {
         //
-        // $article = Article::create([
-        //     'title'=>'News Title 1',
-        //     'description'=>'Lorem Ipsum is dummy text',
-        // ]);
-        // $article->image()->create([
-        //     'url'=>'post-1.jpg'
-        // ]);
-        $article = Article::create([
-            'title'=>'New Title Article',
-            'description'=>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, ut!"
+        $videos = Video::find(2)->comments()->create([
+            'detail'=>'Awsome Video!',
+            'commentable_id'=>"2"
         ]);
-        $article->comments()->create([
-            "detail"=>'this is post comment',
-        ]);
+        // $videos->comments()->create([
+        //     'detail'=>'Awsome Video!'
+        // ]);
     }
 
     /**

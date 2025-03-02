@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CountryController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\ReaderController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubscriberController;
+use App\Http\Controllers\VideoController;
 use App\Models\Purchaser;
 use App\Models\Subscriber;
 
@@ -93,3 +95,7 @@ Route::resource('purchaser',PurchaserController::class);
 Route::resource('article',ArticleController::class);
 
 Route::resource('image',ImageController::class);
+
+Route::resource('video',VideoController::class);
+
+Route::resource('comment',CommentController::class);
