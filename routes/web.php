@@ -1,21 +1,25 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LecturersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewuserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PurchaserController;
 use App\Http\Controllers\ReaderController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubscriberController;
+use App\Models\Purchaser;
 use App\Models\Subscriber;
 
 // Route::get('/', function () {
@@ -83,3 +87,9 @@ Route::resource('country',CountryController::class);
 Route::resource('reader',ReaderController::class);
 
 //Route::resource('post',PostController::class);
+
+Route::resource('purchaser',PurchaserController::class);
+
+Route::resource('article',ArticleController::class);
+
+Route::resource('image',ImageController::class);
