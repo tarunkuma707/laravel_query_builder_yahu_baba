@@ -13,15 +13,15 @@ class VideoController extends Controller
     public function index()
     {
         //
-        $videos = Video::with("comments")->get();
-        foreach($videos as $video){
-            echo "<h1>$video->title</h1>";
-            echo "<h4>$video->url</h4>";
-            echo "<h6>$video->title</h6>";
-            foreach($video->comments as $comment){
-                echo $comment->detail."<br/>";
-            }
-        }
+        // $videos = Video::with("comments")->get();
+        // foreach($videos as $video){
+        //     echo "<h1>$video->title</h1>";
+        //     echo "<h4>$video->url</h4>";
+        //     echo "<h6>$video->title</h6>";
+        //     foreach($video->comments as $comment){
+        //         echo $comment->detail."<br/>";
+        //     }
+        // }
         //return $videos;
         //$videos = Video::find(1);
         // echo "<h1>$videos->title</h1>";
@@ -32,6 +32,8 @@ class VideoController extends Controller
         //     echo $comment->detail."<br/>";
         // }
         //echo "<hr>";
+        $video = Video::find(1);
+        return $video->leastLikes;
     }
 
     /**
