@@ -28,7 +28,13 @@ class PostController extends Controller
         // $authors  =   Author::where('name',"S1")->get();
         // $posts  =   Post::whereBelongsTo($authors)->get();
         // return $posts;
-        $post = Post::find(5);
+        // $post = Post::find(5);
+        // return $post;
+        $post   =   Post::withWhereHas('reader',function($query){
+            $query->active();
+        })
+        ->where('status',1)
+        ->get();
         return $post;
     }
 

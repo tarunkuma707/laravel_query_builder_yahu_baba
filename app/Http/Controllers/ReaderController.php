@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Post;
 use App\Models\Reader;
+use App\Models\Scopes\ReaderScope;
 use Illuminate\Http\Request;
 
 class ReaderController extends Controller
@@ -15,10 +16,16 @@ class ReaderController extends Controller
     public function index()
     {
         //
-        // $readers    =   Reader::with('posts')->with('country')->get();
+         $reader    =   Reader::withoutGlobalScope(ReaderScope::class)->with('posts')->with('country')->get();
         // return $readers;
         
-        $reader =   Reader::with("posts")->find(2);
+        //$reader =   Reader::with("posts")->find(2);
+        // $reader  = Reader::city(["Delhi"])
+        //             //->where('status',1)
+        //             //->active()
+        //             // ->city(["Chandigarh","Delhi"])
+        //             // ->sort("DESC")
+        //             ->get();
         return $reader;
     }
 
