@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\ContactController;
@@ -105,3 +106,5 @@ Route::resource('comment',CommentController::class);
 Route::resource('tag',TagController::class);
 
 Route::resource('test',TestController::class);
+
+Route::resource('client',ClientController::class);
