@@ -32,6 +32,10 @@ use App\Models\Subscriber;
 //     return view('welcome');
 // });
 
+Route::get('/alert',function(){
+    return view('learnalert');
+});
+
 Route::controller(NewuserController::class)->group(function(){
     Route::get('/', 'showNewusers')->name('userhome');
 
