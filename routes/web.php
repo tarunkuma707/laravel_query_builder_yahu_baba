@@ -16,6 +16,7 @@ use App\Http\Controllers\NewuserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\PurchaserController;
 use App\Http\Controllers\ReaderController;
 use App\Http\Controllers\RoleController;
@@ -108,3 +109,5 @@ Route::resource('tag',TagController::class);
 Route::resource('test',TestController::class);
 
 Route::resource('client',ClientController::class);
+
+Route::resource('provider',ProviderController::class);

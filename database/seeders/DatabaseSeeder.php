@@ -8,6 +8,7 @@ use App\Models\Lecturer;
 use App\Models\Student;
 use App\Models\Partner;
 use App\Models\Contact;
+use App\Models\Provider;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -46,5 +47,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ContactSeeder::class
         ]);
+        Provider::factory(4)->create();
     }
 }
