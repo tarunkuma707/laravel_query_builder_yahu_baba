@@ -24,6 +24,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\VideoController;
 use App\Models\Purchaser;
 use App\Models\Subscriber;
@@ -115,3 +116,21 @@ Route::resource('test',TestController::class);
 Route::resource('client',ClientController::class);
 
 Route::resource('provider',ProviderController::class);
+
+Route::get('/register',function(){
+    return  view('register');
+});
+
+Route::view('login','login')->name('login');
+
+Route::view('register','register')->name('register');
+
+Route::post('registerSave',[UserController::class,'register'])->name('registerSave');
+
+Route::post('loginMatch',[UserController::class,'login'])->name('loginMatch');
+
+Route::get('dashboard',[UserController::class,'dashboardPage'])->name('dashboard');
+
+Route::get('logout',[UserController::class,'logout'])->name('logout');
+
+Route::get('dashboard/inner',[UserController::class,'innerPage'])->name('inner');

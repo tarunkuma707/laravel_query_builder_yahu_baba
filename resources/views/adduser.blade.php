@@ -10,7 +10,7 @@
         @endforeach
     </ul>
     @endif
-    <x-form action="{{ route('view.adduser') }}" >
+    <x-form action="{{ route('view.adduser') }}">
         <div class="mb-3">
             <label class="form-label">Name</label>
         <input type="text" value="{{ old('username') }}" class="form-control @error('username') is-invalid @enderror" name="username" />
