@@ -8,11 +8,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
+    <x-alert type="danger">
+        <x-slot:title class="font-bold">
+            Heading Goes Here--- {{ $component->link("Just for testing","https://www.gmail.com","_blank") }}
+        </x-slot:title>
+        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, libero?
+        </p>
+    </x-alert>
     @php
-        $message = "This is message for testing";
+        $componentName = "card"
     @endphp
-    <x-alert type="danger" id="firstAlert" class="m-4" role='flash' dismissable message="This is error message alert." />
-    <x-alert type="success" dismissable="true" :$message />
-    <x-alert type="info" message="This is info message alert." />
+    <x-dynamic-component :component="$componentName" class="m-4" />
+    <x-form action="/somepage" method="PUT" id="firstFrom" class="myForm">
+        <input type="text" name="name" />
+        <button type="submit">Save</button>
+    </x-form>
 </body>
 </html>

@@ -4,12 +4,12 @@ namespace App\View\Components;
 
 use Closure;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\HtmlString;
 use Illuminate\View\Component;
 
 class alert extends Component
 {
     public $type;
-    public $message;
     public $dismissable;
 
     protected $types = [
@@ -20,11 +20,10 @@ class alert extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct($type="info", $message="No Status",$dismissable=false)
+    public function __construct($type="info", $dismissable=false)
     {
         //
         $this->type = $type;
-        $this->message = $message;
         $this->dismissable = $dismissable;
     }
 
@@ -32,6 +31,9 @@ class alert extends Component
         return in_array($this->type,$this->types) ? $this->type : "info";
     }
 
+    public function link($text, $target = "#",$targetType="_blank"){
+        return new HtmlString('<a target="'.$targetType.'" href="'.$target.'" class="alert-link">'.$text.'</a>');
+    }
     /**
      * Get the view / contents that represent the component.
      */
