@@ -35,26 +35,15 @@ class UserController extends Controller
     }
 
     public function innerPage(){
-        if(Auth::check()){
-            return view('inner');
-        }
-        else{
-            return redirect()->route('login');
-        }
+        return view('inner');
     }
 
     public function dashboardPage(){
-        if(Auth::check()){
-            return view('dashboard');
-        }
-        else{
-            return redirect()->route('login');
-        }
+        return view('dashboard');
     }
 
     public function logout(){
         Auth::logout();
         return view('login');
-
     }
 }

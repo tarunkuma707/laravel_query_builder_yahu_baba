@@ -26,6 +26,8 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VideoController;
+use App\Http\Middleware\TestUser;
+use App\Http\Middleware\ValidUser;
 use App\Models\Purchaser;
 use App\Models\Subscriber;
 
@@ -129,8 +131,28 @@ Route::post('registerSave',[UserController::class,'register'])->name('registerSa
 
 Route::post('loginMatch',[UserController::class,'login'])->name('loginMatch');
 
-Route::get('dashboard',[UserController::class,'dashboardPage'])->name('dashboard');
-
 Route::get('logout',[UserController::class,'logout'])->name('logout');
 
+// Route::get('dashboard/inner',[UserController::class,'innerPage'])->name('inner')->middleware(['IsUserValid:admin,editor',TestUser::class]);
+
+// Route::get('dashboard',[UserController::class,'dashboardPage'])->name('dashboard')->middleware(['IsUserValid:admin,editor',TestUser::class]);
+
+// Route::get('dashboard/inner',[UserController::class,'innerPage'])->name('inner')->middleware(['auth','IsUserValid:admin']);
+
+// Route::get('dashboard',[UserController::class,'dashboardPage'])->name('dashboard')->middleware(['auth','IsUserValid:admin']);
 Route::get('dashboard/inner',[UserController::class,'innerPage'])->name('inner');
+
+Route::get('dashboard',[UserController::class,'dashboardPage'])->name('dashboard');
+
+Route::get('/inuser',function(){
+    return view('user');
+})->name('inuser');
+
+// Route::middleware(['ok-user'])->group(function(){
+//     Route::get('dashboard/inner',[UserController::class,'innerPage'])
+//     ->name('inner')
+//     ->withoutMiddleware([TestUser::class]);
+
+//     Route::get('dashboard',[UserController::class,'dashboardPage'])
+//     ->name('dashboard');
+// });
