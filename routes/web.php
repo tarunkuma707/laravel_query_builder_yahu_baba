@@ -20,6 +20,7 @@ use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\PurchaserController;
 use App\Http\Controllers\ReaderController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SessionController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TagController;
@@ -156,3 +157,10 @@ Route::get('/inuser',function(){
 //     Route::get('dashboard',[UserController::class,'dashboardPage'])
 //     ->name('dashboard');
 // });
+
+Route::get('/session',[SessionController::class,'index']);
+
+Route::get('/store-session',[SessionController::class,'storeSession']);
+
+
+Route::get('/delete-session',[SessionController::class,'deleteSession']);
