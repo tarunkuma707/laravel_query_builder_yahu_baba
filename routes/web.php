@@ -178,3 +178,7 @@ Route::get('/store-session',[SessionController::class,'storeSession']);
 Route::get('/delete-session',[SessionController::class,'deleteSession']);
 
 Route::get('send-email',[EmailController::class,'sendEmail']);
+
+Route::get('contact',[EmailController::class,'contactForm']);
+
+Route::post('contact',[EmailController::class,'sendContactEmail'])->name('contact');
