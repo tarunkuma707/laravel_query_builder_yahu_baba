@@ -17,6 +17,7 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ReaderController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CountryController;
@@ -135,6 +136,8 @@ Route::post('registerSave',[UserController::class,'register'])->name('registerSa
 Route::post('loginMatch',[UserController::class,'login'])->name('loginMatch');
 
 Route::get('logout',[UserController::class,'logout'])->name('logout');
+
+Route::resource('books',BookController::class);
 
 // Route::get('dashboard/inner',[UserController::class,'innerPage'])->name('inner')->middleware(['IsUserValid:admin,editor',TestUser::class]);
 
