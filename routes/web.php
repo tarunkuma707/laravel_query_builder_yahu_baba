@@ -27,6 +27,7 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\LecturersController;
@@ -175,3 +176,5 @@ Route::get('/store-session',[SessionController::class,'storeSession']);
 
 
 Route::get('/delete-session',[SessionController::class,'deleteSession']);
+
+Route::get('send-email',[EmailController::class,'sendEmail']);
