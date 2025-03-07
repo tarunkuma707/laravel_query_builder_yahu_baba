@@ -1,36 +1,36 @@
 <?php
 
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\AuthorController;
-use App\Http\Controllers\ClientController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\CommentsController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\CountryController;
-use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\ImageController;
-use App\Http\Controllers\LecturersController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\NewuserController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\PartnerController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\ProviderController;
-use App\Http\Controllers\PurchaserController;
-use App\Http\Controllers\ReaderController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\SessionController;
-use App\Http\Controllers\StudentController;
-use App\Http\Controllers\SubscriberController;
-use App\Http\Controllers\TagController;
-use App\Http\Controllers\TestController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\VideoController;
-use App\Http\Middleware\TestUser;
-use App\Http\Middleware\ValidUser;
 use App\Models\Purchaser;
 use App\Models\Subscriber;
+use App\Http\Middleware\TestUser;
+use App\Http\Middleware\ValidUser;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TagController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\VideoController;
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ReaderController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CountryController;
+use App\Http\Controllers\NewuserController;
+use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\SessionController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ProviderController;
+use App\Http\Controllers\LecturersController;
+use App\Http\Controllers\PurchaserController;
+use App\Http\Controllers\SubscriberController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -126,6 +126,8 @@ Route::get('/register',function(){
 
 Route::view('login','login')->name('login');
 
+Route::view('/loginpage',[UserController::class,'loginPage'])->name('loginpage');
+
 Route::view('register','register')->name('register');
 
 Route::post('registerSave',[UserController::class,'register'])->name('registerSave');
@@ -144,6 +146,12 @@ Route::get('logout',[UserController::class,'logout'])->name('logout');
 Route::get('dashboard/inner',[UserController::class,'innerPage'])->name('inner');
 
 Route::get('dashboard',[UserController::class,'dashboardPage'])->name('dashboard');
+
+Route::get('profile/{id}',[UserController::class,'viewProfile'])->name('profile.show');
+
+Route::get('blog/{id}',[UserController::class,'viewBlog'])->name('blog.show');
+
+Route::get('single-blog/{id}',[UserController::class,'updateBlog'])->name('blog.update');
 
 Route::get('/inuser',function(){
     return view('user');

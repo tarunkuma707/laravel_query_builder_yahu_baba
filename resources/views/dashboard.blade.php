@@ -12,6 +12,13 @@
         <div class="row">
             <div class="col-6 mb-3">
                 <h1>Welcome, {{ Auth::user()->name }}</h1>
+                @can('isAdmin')
+                    <a href="#" class="btn btn-success">Admin Panel</a>
+                @else
+                <a href="#" class="btn btn-success">User Panel</a>
+                @endcan
+                <a href="{{ route('profile.show',Auth::user()->id) }}" class="btn btn-primary">Profile</a>
+                <a href="{{ route('blog.show',Auth::user()->id) }}"  class="btn btn-success">Post</a>
             </div>
         </div>
         <div class="row">
