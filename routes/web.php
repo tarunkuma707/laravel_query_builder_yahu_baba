@@ -182,3 +182,9 @@ Route::get('send-email',[EmailController::class,'sendEmail']);
 Route::get('contact',[EmailController::class,'contactForm']);
 
 Route::post('contact',[EmailController::class,'sendContactEmail'])->name('contact');
+
+Route::view('allposts','allposts');
+
+Route::view('addpost','addpost');
+
+Route::view('signin','signin');

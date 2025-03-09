@@ -71,7 +71,7 @@ class PostController extends BaseController
             [
                 'title'=>'required',
                 'description'=>'required',
-                'image'=>'required|mimes:png,jpg',
+                'image'=>'nullable|mimes:png,jpg',
             ]
         );
         if($validateUser->fails()){
