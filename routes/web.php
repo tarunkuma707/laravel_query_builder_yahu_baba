@@ -29,6 +29,7 @@ use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\LecturersController;
 use App\Http\Controllers\PurchaserController;
@@ -37,6 +38,23 @@ use App\Http\Controllers\SubscriberController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+//Route::view('/additems','additems')->name('additems');
+Route::get('/additems', function () {
+    return view('additems');
+});
+
+Route::get('/getallitems',[ItemController::class,'getallitems']);
+
+Route::post('/addnewitems',[ItemController::class,'addnewitems']);
+
+Route::post('/deleteitem/{id}', [ItemController::class,'deleteitem'])->name('item.delete');
+
+Route::get('/single/{id}', [ItemController::class,'getsingleitem']);
+
+Route::get('/updateitem/{id}', [ItemController::class,'updateitem']);
+
+Route::post('/updatepostitem/{id}',[ItemController::class,'updatepostitem']);
 
 Route::get('/alert',function(){
     return view('learnalert');
